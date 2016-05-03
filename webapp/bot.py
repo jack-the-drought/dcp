@@ -12,13 +12,16 @@ invalidhashes = tr_list.query.filter_by(etat=0)
 
 numberofinvalid = invalidhashes.count()
 
+invalidlst = invalidhashes.all()
+
 for i in range(numberofinvalid):
-	xa7 = invalidhashes.all()[i]
-	adr = xa7.bitcoinaddr
-	solde = getsolde(adr)
-	print "solde is ", solde
-	solde = float(solde)	
-	if solde >= 0.0005:
+        print i
+        xa7 = invalidlst[i]
+        adr = xa7.bitcoinaddr
+        solde = getsolde(adr)
+        print "solde is ", solde
+        solde = float(solde)
+        if solde >= 0.0005:
 		
 		print "received money now saving the hash"		
 		
